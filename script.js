@@ -9,38 +9,26 @@ const muteIcon = document.getElementById('mute-icon');
 let finalizado = false;
 
 playBtn.addEventListener('click', () => {
-    // Sube la cortina
     startScreen.classList.add('slide-up');
-    
-    // Carga de audio optimizada
     music.load(); 
-    music.play().catch(e => console.log("Audio esperando interacción"));
-
+    music.play().catch(e => console.log("Audio esperando"));
     if(muteBtn) muteBtn.classList.add('visible');
 
-    // Muestra el video con un pequeño retraso para la fluidez
     setTimeout(() => {
         video.style.display = 'block';
         video.style.opacity = '1';
-        
         setTimeout(() => {
             video.classList.add('visible');
             video.play().catch(e => saltarAInvitacion());
         }, 100); 
-
         setTimeout(() => { if (!finalizado) saltarAInvitacion(); }, 8000);
-    }, 400); 
+    }, 600);
 });
 
-// PAUSA INTELIGENTE: Al salir a WhatsApp o Maps
+// PAUSAR AL SALIR A WHATSAPP/MAPS
 document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-        music.pause();
-    } else {
-        if (!music.muted && finalizado) {
-            music.play().catch(e => console.log("Error al reanudar"));
-        }
-    }
+    if (document.hidden) { music.pause(); } 
+    else { if (!music.muted && finalizado) music.play(); }
 });
 
 if (muteBtn) {
@@ -69,20 +57,21 @@ function saltarAInvitacion() {
             if(el) setTimeout(() => el.classList.add('visible-pieza'), delay);
         };
 
-        // Secuencia de entrada
         show('waooo-titulo', 400);
-        setTimeout(() => { 
-            const nota = document.querySelector('.nota-regalo');
-            if(nota) nota.classList.add('visible-pieza'); 
-        }, 1000); 
-        show('waooo-frame', 1600);
+        show('waooo-frame', 1600); // Retrasamos un poco el marco dorado
         show('waooo-texto', 2200);
         show('waooo-scroll', 2800);
 
+// La nota aparece justo después del título
         setTimeout(() => { 
-            const notaP = document.querySelector('.nota-piscina');
-            if(notaP) notaP.classList.add('visible-pieza'); 
-        }, 4200);
+            const nota = document.querySelector('.nota-regalo');
+            if(nota) nota.classList.add('visible-pieza'); 
+        }, 1000);        
+        
+        
+        // Notas Flotantes
+        setTimeout(() => { document.querySelector('.nota-regalo').classList.add('visible-pieza'); }, 2200);
+        setTimeout(() => { document.querySelector('.nota-piscina').classList.add('visible-pieza'); }, 4200);
 
         show('convocatoria-titulo', 3000);
         show('convocatoria-fecha', 3500);
