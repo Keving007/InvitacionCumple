@@ -2,7 +2,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background-color: #000; color: white; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
-/* --- PANTALLA INICIAL (CORREGIDO) --- */
+/* --- PANTALLA INICIAL (CORTINA) --- */
 #start-screen {
     position: fixed;
     top: 0;
@@ -15,9 +15,7 @@ body { background-color: #000; color: white; font-family: 'Montserrat', sans-ser
     transform: translateY(0);
 }
 
-#start-screen.slide-up { 
-    transform: translateY(-100%); 
-}
+#start-screen.slide-up { transform: translateY(-100%); }
 
 .background-wrapper {
     position: relative;
@@ -28,11 +26,7 @@ body { background-color: #000; color: white; font-family: 'Montserrat', sans-ser
     align-items: center;
 }
 
-.full-img-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-}
+.full-img-bg { width: 100%; height: 100%; object-fit: contain; }
 
 .button-layer {
     position: absolute;
@@ -53,7 +47,7 @@ body { background-color: #000; color: white; font-family: 'Montserrat', sans-ser
     cursor: pointer; 
 }
 
-/* --- VIDEO --- */
+/* --- MULTIMEDIA --- */
 #intro-video {
     position: fixed;
     top: 0;
@@ -68,7 +62,7 @@ body { background-color: #000; color: white; font-family: 'Montserrat', sans-ser
     transition: opacity 1s ease;
 }
 
-/* --- SECCIONES GLOBALES --- */
+/* --- SECCIONES --- */
 .hidden-total { display: none; }
 .visible-invitation { display: block !important; }
 
@@ -88,13 +82,8 @@ section {
 .section-convocatoria { background: url('./img/Fondo2.jpg') center/cover no-repeat scroll #0d2b0f; }
 .section-location { background: url('./img/Fondo3.jpg') center/cover no-repeat scroll #000; }
 
-/* --- PIEZAS VISUALES --- */
-.feliz-cumple { 
-    font-family: 'Rubik Storm', cursive; 
-    color: #fdd835; 
-    font-size: 2.2rem; 
-    text-shadow: 2px 2px 0px #000;
-}
+/* --- ELEMENTOS DE DISEÑO --- */
+.feliz-cumple { font-family: 'Rubik Storm', cursive; color: #fdd835; font-size: 2.2rem; text-shadow: 2px 2px 0px #000; }
 
 .nota-flotante {
     position: relative;
@@ -128,13 +117,32 @@ section {
 
 .jersey-img-waoo { width: 85%; }
 
-.txt-invitacion-largo { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 1.1rem; 
-    line-height: 1.4; 
+/* --- CONTADOR / MARCADOR (RESTAURADO) --- */
+.font-bitcount {
+    font-family: 'Silkscreen', cursive;
+    font-size: 1.5rem;
+    color: #fdd835; 
+    border: 3px solid #fdd835; 
+    padding: 15px 25px; 
+    background: rgba(0,0,0,0.7); 
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(253, 216, 53, 0.3);
+    border-radius: 5px;
 }
 
-/* --- BOTONES Y CONTROLES --- */
+.label-tiempo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* --- OTROS --- */
+.font-convocatoria { font-family: 'Syne', sans-serif; font-size: 2rem; color: #fdd835; text-shadow: 2px 2px #000; }
+.font-fecha { font-family: 'Syne', sans-serif; font-size: 1.5rem; color: white; }
+.hora-destacada { color: #fdd835; font-weight: 900; font-size: 1.4rem; }
+
 .mute-control { 
     position: fixed; top: 20px; right: 20px; z-index: 10001; background: rgba(0, 0, 0, 0.8); 
     border: 2px solid #bf953f; color: #fdd835; border-radius: 50%; width: 45px; height: 45px; 
@@ -146,10 +154,5 @@ section {
 .visible-pieza { opacity: 1 !important; transform: translateY(0) !important; }
 .scroll-indicator { font-size: 0.7rem; color: #fdd835; margin-top: 10px; }
 
-/* Botones de Confirmación */
-.btn-confirmar-v2, .btn-cancelar-v2 { 
-    display: block; width: 100%; padding: 15px; border-radius: 10px; 
-    text-decoration: none; font-weight: 900; margin-top: 10px; 
-}
-.btn-confirmar-v2 { background: #25d366; color: white; }
-.btn-cancelar-v2 { background: #ff4d4d; color: white; }
+.btn-confirmar-v2 { display: block; background: #25d366; color: white; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: 900; margin-top: 10px; }
+.btn-cancelar-v2 { display: block; background: #ff4d4d; color: white; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: 900; margin-top: 10px; }

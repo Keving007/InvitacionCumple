@@ -11,7 +11,7 @@ let finalizado = false;
 playBtn.addEventListener('click', () => {
     startScreen.classList.add('slide-up');
     music.load(); 
-    music.play().catch(e => console.log("Audio esperando"));
+    music.play().catch(e => console.log("Audio en espera"));
     if(muteBtn) muteBtn.classList.add('visible');
 
     setTimeout(() => {
@@ -25,7 +25,7 @@ playBtn.addEventListener('click', () => {
     }, 400); 
 });
 
-// PAUSAR AL SALIR (WhatsApp/Maps)
+// PAUSA AL CAMBIAR DE APP (WhatsApp/Maps)
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) { music.pause(); } 
     else { if (!music.muted && finalizado) music.play(); }
@@ -59,16 +59,16 @@ function saltarAInvitacion() {
 
         show('waooo-titulo', 400);
         setTimeout(() => { 
-            const nota = document.querySelector('.nota-regalo');
-            if(nota) nota.classList.add('visible-pieza'); 
+            const n1 = document.querySelector('.nota-regalo');
+            if(n1) n1.classList.add('visible-pieza'); 
         }, 1000); 
         show('waooo-frame', 1600);
         show('waooo-texto', 2200);
         show('waooo-scroll', 2800);
 
         setTimeout(() => { 
-            const notaP = document.querySelector('.nota-piscina');
-            if(notaP) notaP.classList.add('visible-pieza'); 
+            const n2 = document.querySelector('.nota-piscina');
+            if(n2) n2.classList.add('visible-pieza'); 
         }, 4200);
 
         show('convocatoria-titulo', 3000);

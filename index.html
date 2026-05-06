@@ -15,7 +15,7 @@
 
     <div id="start-screen">
         <div class="background-wrapper">
-            <img src="./img/cortina.png" class="full-img-bg" alt="Cortina de inicio">
+            <img src="./img/cortina.png" class="full-img-bg" alt="Cortina">
             <div class="button-layer">
                 <button id="play-btn">⚽ ¡PITAZO INICIAL!</button>
             </div>
@@ -33,78 +33,47 @@
     <div id="invitation" class="hidden-total">
         
         <section class="section-waooo">
-            <div class="section-content">
-                <h1 class="feliz-cumple anim-pieza" id="waooo-titulo">¡FELIZ CUMPLEAÑOS!</h1>
-                
-                <div class="nota-flotante nota-regalo anim-pieza">
-                    <span class="pin">📌</span>
-                    <p><strong>DETALLE:</strong><br>Lluvia de Sobres</p>
-                </div>
-
-                <div class="golden-frame anim-pieza anim-float" id="waooo-frame">
-                    <img src="./img/camiseta.png" class="jersey-img-waoo" alt="Camiseta Dominic">
-                </div>
-
-                <div class="emocion-text anim-pieza" id="waooo-texto">
-                    <p class="txt-invitacion-largo">
-                        Con muchísima emoción te invito a celebrar conmigo mi cumpleaños número 11 🥳<br>
-                        Será un día lleno de diversión, goles, risas y pura energía futbolera ⚽🔥<br>
-                        <strong>¡No faltes! ¡Tú eres parte de este equipo ganador! 🙌</strong>
-                    </p>
-                </div>
-                <p class="scroll-indicator anim-pieza" id="waooo-scroll">Desliza para ver más</p>
+            <h1 class="feliz-cumple anim-pieza" id="waooo-titulo">¡FELIZ CUMPLEAÑOS!</h1>
+            <div class="nota-flotante nota-regalo anim-pieza">
+                <span class="pin">📌</span>
+                <p><strong>DETALLE:</strong> Lluvia de Sobres</p>
             </div>
+            <div class="golden-frame anim-pieza" id="waooo-frame">
+                <img src="./img/camiseta.png" class="jersey-img-waoo">
+            </div>
+            <div class="anim-pieza" id="waooo-texto">
+                <p class="txt-invitacion-largo">¡Te invito a celebrar mis 11 años! 🥳</p>
+            </div>
+            <p class="scroll-indicator anim-pieza" id="waooo-scroll">Desliza para más</p>
         </section>
 
         <section class="section-convocatoria">
-            <div class="section-content">
-                <div class="nota-flotante nota-piscina anim-pieza">
-                    <span class="pin">📍</span>
-                    <p><strong>OUTFIT:</strong><br>Traje de Baño</p>
-                </div>
-
-                <h2 class="font-convocatoria anim-pieza" id="convocatoria-titulo">✨ ¡ESTÁS CONVOCADO! ✨</h2>
-                
-                <div class="info-principal anim-pieza" id="convocatoria-fecha">
-                    <h3 class="font-fecha">SÁBADO 23 DE MAYO</h3>
-                    <span class="hora-destacada">10:00 AM</span>
-                </div>
-
-                <div class="marcador-container anim-pieza" id="convocatoria-marcador">
-                    <p class="label-tiempo">Tiempo restante</p>
-                    <div id="countdown" class="font-bitcount"></div>
-                </div>
-
-                <div class="emocion-convocatoria anim-pieza" id="convocatoria-texto-largo">
-                    <p class="txt-invitacion-largo">
-                        Ven con muchas ganas de pasarla bien y compartir una celebración inolvidable 🥳<br>
-                        <strong>🎈 ¡Te espero para celebrar juntos! 🎈</strong>
-                    </p>
-                </div>
-                <p class="scroll-indicator anim-pieza" id="convocatoria-scroll">Desliza para la ubicación</p>
+            <div class="nota-flotante nota-piscina anim-pieza">
+                <span class="pin">📍</span>
+                <p><strong>OUTFIT:</strong> Traje de Baño</p>
             </div>
+            <h2 class="font-convocatoria anim-pieza" id="convocatoria-titulo">✨ ¡ESTÁS CONVOCADO! ✨</h2>
+            <div class="anim-pieza" id="convocatoria-fecha">
+                <h3 class="font-fecha">SÁBADO 23 DE MAYO <br> <span class="hora-destacada">10:00 AM</span></h3>
+            </div>
+            <div class="marcador-container anim-pieza" id="convocatoria-marcador">
+                <p class="label-tiempo">Tiempo restante</p>
+                <div id="countdown" class="font-bitcount"></div>
+            </div>
+            <p class="scroll-indicator anim-pieza" id="convocatoria-scroll">Desliza para confirmar</p>
         </section>
 
         <section class="section-location">
-            <div class="location-split-container">
-                <div class="location-box anim-pieza" id="location-izq">
-                    <h2 class="font-convocatoria">📍 UBICACIÓN</h2>
-                    <div class="map-wrapper">
-                        <a href="https://maps.app.goo.gl/uXv7Vf6Z8M2f6e9k7" target="_blank" class="btn-ruta-flotante">
-                            🚀 ¡TRAZAR RUTA!
-                        </a>
-                        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <p class="map-address">📍 Macas, Ecuador</p>
+            <div class="location-box anim-pieza" id="location-izq">
+                <h2 class="font-convocatoria">📍 UBICACIÓN</h2>
+                <div class="map-wrapper">
+                    <a href="https://maps.app.goo.gl/uXv7Vf6Z8M2f6e9k7" target="_blank" class="btn-ruta-flotante">🚀 RUTA</a>
+                    <iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
                 </div>
-
-                <div class="confirm-box anim-pieza" id="location-der">
-                    <h2 class="font-convocatoria">⚽ ¿VIENES?</h2>
-                    <div class="buttons-group-vertical">
-                        <a href="https://wa.me/593999606845?text=¡Confirmo!" target="_blank" class="btn-confirmar-v2">SÍ, ¡ALLÍ ESTARÉ! ✅</a>
-                        <a href="https://wa.me/593999606845?text=No+puedo" target="_blank" class="btn-cancelar-v2">NO PODRÉ ASISTIR ❌</a>
-                    </div>
-                </div>
+            </div>
+            <div class="confirm-box anim-pieza" id="location-der">
+                <h2 class="font-convocatoria">⚽ ¿VIENES?</h2>
+                <a href="https://wa.me/593999606845" class="btn-confirmar-v2">SÍ, ¡ALLÍ ESTARÉ! ✅</a>
             </div>
         </section>
     </div>
