@@ -10,7 +10,7 @@ let finalizado = false;
 
 playBtn.addEventListener('click', () => {
     startScreen.classList.add('slide-up');
-    music.load(); 
+    music.load(); // Carga el audio solo al pulsar el botón para optimizar velocidad
     music.play().catch(e => console.log("Audio esperando interacción"));
     if(muteBtn) muteBtn.classList.add('visible');
 
@@ -25,7 +25,7 @@ playBtn.addEventListener('click', () => {
     }, 600);
 });
 
-// PAUSAR AL SALIR A OTRAS APPS
+// PAUSA INTELIGENTE: Si cambias de pestaña (WhatsApp/Maps) la música se detiene
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) { music.pause(); } 
     else { if (!music.muted && finalizado) music.play(); }
@@ -57,7 +57,7 @@ function saltarAInvitacion() {
             if(el) setTimeout(() => el.classList.add('visible-pieza'), delay);
         };
 
-        // Secuencia de animación optimizada
+        // Secuencia de entrada fluida
         show('waooo-titulo', 400);
         setTimeout(() => { 
             const nota = document.querySelector('.nota-regalo');
