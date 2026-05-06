@@ -2,19 +2,23 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background-color: #000; color: white; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
-/* --- PANTALLA INICIAL (ARREGLO DE IMAGEN) --- */
+/* --- PANTALLA INICIAL (CORRECCIÓN DE ANIMACIÓN Y ESCALA) --- */
 #start-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #0d2b0f; /* Mantiene el fondo verde de los lados */
+    background-color: #0d2b0f;
     z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Eliminamos flex de aquí para que transform funcione sin conflictos */
     transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+}
+
+/* Clase activada por JS para subir la cortina */
+#start-screen.slide-up { 
+    transform: translateY(-100%); 
 }
 
 .background-wrapper {
@@ -26,42 +30,54 @@ body { background-color: #000; color: white; font-family: 'Montserrat', sans-ser
     align-items: center;
 }
 
-/* Esta es la clave: contain para que no se estire ni se pierda el botón */
 .full-img-bg {
     width: 100%;
     height: 100%;
-    object-fit: contain; 
+    object-fit: contain; /* Mantiene la proporción original */
 }
 
 .button-layer {
     position: absolute;
-    bottom: 18%; /* Ajusta esto según tu imagen para que el botón calce justo */
+    bottom: 20%; 
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-/* --- VIDEO (TAMAÑO CONTROLADO) --- */
+#play-btn { 
+    padding: 15px 35px; 
+    font-size: 1.2rem; 
+    font-weight: 900; 
+    background: #fdd835; 
+    color: #000; 
+    border: none; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+}
+
+/* --- VIDEO (AJUSTE PROPORCIONAL) --- */
 #intro-video {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    object-fit: cover; /* Cambia a contain si prefieres ver el video completo sin recortes */
+    object-fit: contain; /* Cambiado a contain para evitar que se vea gigante */
+    background-color: #000;
     opacity: 0;
     z-index: 5000;
     display: none;
     transition: opacity 1s ease;
 }
 
-/* --- SECCIONES DINÁMICAS (OPTIMIZADO PARA MÓVIL) --- */
+/* --- SECCIONES DINÁMICAS --- */
 section { 
     min-height: 100vh; 
     width: 100%; 
     display: flex; 
     flex-direction: column; 
-    justify-content: space-around; /* Reparto de espacio automático */
+    justify-content: space-around; 
     align-items: center; 
     text-align: center; 
     position: relative; 
@@ -69,7 +85,7 @@ section {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll; /* Mejor rendimiento en móviles */
+    background-attachment: scroll;
 }
 
 .section-waooo { background-image: url('./img/Fondo1.jpg'); background-color: #1b5e20; }
@@ -101,13 +117,7 @@ section {
 .txt-invitacion-largo { font-family: 'Playfair Display', serif; font-size: 1.1rem; line-height: 1.4; max-width: 90%; margin: 0 auto; text-shadow: 1px 1px 2px #000; }
 .font-bitcount { font-family: 'Silkscreen', cursive; font-size: 1.3rem; color: #fdd835; border: 2px solid #fdd835; padding: 12px; background: rgba(0,0,0,0.6); display: inline-block; }
 
-/* --- UBICACIÓN Y BOTONES --- */
-.location-box, .confirm-box { background: rgba(0, 0, 0, 0.5); border: 3px solid #bf953f; border-radius: 20px; padding: 20px; width: 100%; max-width: 400px; margin: 10px 0; }
-.map-wrapper { width: 100%; height: 220px; border-radius: 15px; overflow: hidden; position: relative; border: 2px solid #bf953f; }
-.btn-confirmar-v2 { display: block; background: #25d366; color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 900; margin-top: 15px; }
-.btn-cancelar-v2 { display: block; background: #ff4d4d; color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 900; margin-top: 10px; }
-
-/* --- CONTROLES Y ANIMACIÓN --- */
+/* --- BOTONES Y CONTROLES --- */
 .mute-control { position: fixed; top: 20px; right: 20px; z-index: 10001; background: rgba(0, 0, 0, 0.8); border: 2px solid #bf953f; color: #fdd835; border-radius: 50%; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: 0.3s; }
 .mute-control.visible { opacity: 1; pointer-events: auto; }
 .anim-pieza { opacity: 0; transform: translateY(20px); transition: 1s; }

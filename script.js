@@ -9,29 +9,36 @@ const muteIcon = document.getElementById('mute-icon');
 let finalizado = false;
 
 playBtn.addEventListener('click', () => {
+    // Sube la cortina
     startScreen.classList.add('slide-up');
-    music.load(); // Carga el audio solo al pulsar el botón para optimizar velocidad
+    
+    // Carga de audio optimizada
+    music.load(); 
     music.play().catch(e => console.log("Audio esperando interacción"));
+
     if(muteBtn) muteBtn.classList.add('visible');
 
+    // Muestra el video con un pequeño retraso para la fluidez
     setTimeout(() => {
         video.style.display = 'block';
         video.style.opacity = '1';
+        
         setTimeout(() => {
             video.classList.add('visible');
             video.play().catch(e => saltarAInvitacion());
         }, 100); 
+
         setTimeout(() => { if (!finalizado) saltarAInvitacion(); }, 8000);
-    }, 600);
+    }, 400); 
 });
 
-// PAUSA INTELIGENTE: Si cambias de pestaña (WhatsApp/Maps) la música se detiene
+// PAUSA INTELIGENTE: Al salir a WhatsApp o Maps
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
         music.pause();
     } else {
         if (!music.muted && finalizado) {
-            music.play().catch(e => console.log("Reinicio tras volver"));
+            music.play().catch(e => console.log("Error al reanudar"));
         }
     }
 });
@@ -62,7 +69,7 @@ function saltarAInvitacion() {
             if(el) setTimeout(() => el.classList.add('visible-pieza'), delay);
         };
 
-        // Secuencia de entrada fluida
+        // Secuencia de entrada
         show('waooo-titulo', 400);
         setTimeout(() => { 
             const nota = document.querySelector('.nota-regalo');
