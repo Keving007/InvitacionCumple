@@ -10,36 +10,21 @@ let finalizado = false;
 
 playBtn.addEventListener('click', () => {
     startScreen.classList.add('slide-up');
-    music.load(); 
-    music.play().catch(e => console.log("Audio en espera"));
+    music.load(); music.play();
     if(muteBtn) muteBtn.classList.add('visible');
 
     setTimeout(() => {
-        video.style.display = 'block';
-        video.style.opacity = '1';
+        video.style.display = 'block'; video.style.opacity = '1';
         setTimeout(() => {
-            video.classList.add('visible');
-            video.play().catch(e => saltarAInvitacion());
+            video.classList.add('visible'); video.play();
         }, 100); 
-        setTimeout(() => { if (!finalizado) saltarAInvitacion(); }, 8000);
     }, 400); 
 });
 
-// PAUSA AL CAMBIAR DE APP (WhatsApp/Maps)
+// PAUSA AL SALIR (WhatsApp/Maps)
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) { music.pause(); } 
     else { if (!music.muted && finalizado) music.play(); }
-});
-
-if (muteBtn) {
-    muteBtn.addEventListener('click', () => {
-        music.muted = !music.muted;
-        muteIcon.innerText = music.muted ? '🔇' : '🔊';
-    });
-}
-
-video.addEventListener('timeupdate', () => {
-    if (video.currentTime >= 5.2 && !finalizado) saltarAInvitacion();
 });
 
 function saltarAInvitacion() {
@@ -48,7 +33,6 @@ function saltarAInvitacion() {
     video.style.opacity = '0';
     setTimeout(() => {
         video.style.display = 'none';
-        video.muted = true;
         invitation.classList.add('visible-invitation');
         document.body.style.overflowY = 'auto';
 
@@ -58,27 +42,10 @@ function saltarAInvitacion() {
         };
 
         show('waooo-titulo', 400);
-        setTimeout(() => { 
-            const n1 = document.querySelector('.nota-regalo');
-            if(n1) n1.classList.add('visible-pieza'); 
-        }, 1000); 
+        setTimeout(() => { document.querySelector('.nota-regalo').classList.add('visible-pieza'); }, 1000); 
         show('waooo-frame', 1600);
         show('waooo-texto', 2200);
         show('waooo-scroll', 2800);
-
-        setTimeout(() => { 
-            const n2 = document.querySelector('.nota-piscina');
-            if(n2) n2.classList.add('visible-pieza'); 
-        }, 4200);
-
-        show('convocatoria-titulo', 3000);
-        show('convocatoria-fecha', 3500);
-        show('convocatoria-marcador', 4000);
-        show('convocatoria-texto-largo', 4500);
-        show('convocatoria-scroll', 5000);
-
-        show('location-izq', 5500);
-        show('location-der', 6000);
     }, 800);
 }
 
