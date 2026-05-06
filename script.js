@@ -27,8 +27,13 @@ playBtn.addEventListener('click', () => {
 
 // PAUSA INTELIGENTE: Si cambias de pestaña (WhatsApp/Maps) la música se detiene
 document.addEventListener("visibilitychange", () => {
-    if (document.hidden) { music.pause(); } 
-    else { if (!music.muted && finalizado) music.play(); }
+    if (document.hidden) {
+        music.pause();
+    } else {
+        if (!music.muted && finalizado) {
+            music.play().catch(e => console.log("Reinicio tras volver"));
+        }
+    }
 });
 
 if (muteBtn) {
