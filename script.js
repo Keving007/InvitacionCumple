@@ -22,10 +22,10 @@ playBtn.addEventListener('click', () => {
             video.play().catch(e => saltarAInvitacion());
         }, 100); 
         setTimeout(() => { if (!finalizado) saltarAInvitacion(); }, 8000);
-    }, 600);
+    }, 400); 
 });
 
-// PAUSAR AL SALIR A WHATSAPP/MAPS
+// PAUSAR AL SALIR (WhatsApp/Maps)
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) { music.pause(); } 
     else { if (!music.muted && finalizado) music.play(); }
@@ -58,20 +58,18 @@ function saltarAInvitacion() {
         };
 
         show('waooo-titulo', 400);
-        show('waooo-frame', 1600); // Retrasamos un poco el marco dorado
-        show('waooo-texto', 2200);
-        show('waooo-scroll', 2800);
-
-// La nota aparece justo después del título
         setTimeout(() => { 
             const nota = document.querySelector('.nota-regalo');
             if(nota) nota.classList.add('visible-pieza'); 
-        }, 1000);        
-        
-        
-        // Notas Flotantes
-        setTimeout(() => { document.querySelector('.nota-regalo').classList.add('visible-pieza'); }, 2200);
-        setTimeout(() => { document.querySelector('.nota-piscina').classList.add('visible-pieza'); }, 4200);
+        }, 1000); 
+        show('waooo-frame', 1600);
+        show('waooo-texto', 2200);
+        show('waooo-scroll', 2800);
+
+        setTimeout(() => { 
+            const notaP = document.querySelector('.nota-piscina');
+            if(notaP) notaP.classList.add('visible-pieza'); 
+        }, 4200);
 
         show('convocatoria-titulo', 3000);
         show('convocatoria-fecha', 3500);
