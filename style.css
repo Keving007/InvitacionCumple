@@ -18,17 +18,18 @@ body { background-color: #000; color: white; font-family: 'Montserrat', sans-ser
 .hidden-total { display: none; }
 .visible-invitation { display: block !important; }
 
-/* --- AJUSTE DE SECCIÓN PARA CENTRADO TOTAL --- */
+/* --- AJUSTE PARA QUE NADA SE CORTE --- */
 section { 
-    min-height: 100vh; 
+    height: 100vh; /* Altura estándar */
+    height: 100dvh; /* Altura dinámica: se ajusta si aparece/desaparece la barra de navegación */
     width: 100%; 
     display: flex; 
     flex-direction: column; 
-    justify-content: space-around; /* Reparte el espacio entre los elementos */
+    justify-content: space-between; /* Empuja el título arriba y el scroll abajo */
     align-items: center; 
     text-align: center; 
     position: relative; 
-    padding: 50px 20px; /* Espacio interno para que no toque bordes */
+    padding: 40px 20px; /* Espacio de seguridad */
 }
 
 /* --- SECCIÓN 1: CENTRADO DE PIEZAS --- */
@@ -77,12 +78,37 @@ section {
     margin: 0 auto;
 }
 
-/* Indicador de scroll: Siempre al fondo */
+/* --- INDICADOR DE SCROLL CON MOVIMIENTO --- */
 .scroll-indicator {
-    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
     color: #fdd835;
-    margin-top: 20px;
-    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: auto; /* Se pega siempre al fondo de la sección */
+    padding-bottom: 15px;
+}
+
+/* La flecha que rebota para los distraídos */
+.scroll-indicator::after {
+    content: '▼';
+    font-size: 1rem;
+    animation: bounce 2s infinite;
+}
+
+/* --- OPTIMIZACIÓN DE ESPACIOS EN SECCIÓN 1 --- */
+.feliz-cumple { 
+    margin-top: 10px; 
+    font-size: 2.2rem; 
+}
+
+.golden-frame { 
+    width: 180px; 
+    height: 180px; 
+    margin: 10px auto; 
 }
 
 /* --- SECCIÓN 1: BIENVENIDA --- */
