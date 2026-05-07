@@ -134,7 +134,36 @@ section {
 .section-location { background: url('./img/Fondo3.jpg') center/cover no-repeat scroll #000; }
 .location-split-container { display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 500px; }
 .location-box, .confirm-box { background: rgba(0, 0, 0, 0.5); border: 2px solid #bf953f; border-radius: 20px; padding: 25px; }
-.map-wrapper { width: 100%; height: 250px; border-radius: 15px; overflow: hidden; position: relative; border: 2px solid #bf953f; margin: 15px 0; }
+/* Contenedor del mapa */
+.map-wrapper {
+    width: 100%;
+    height: 220px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative; /* Clave para que el botón flote dentro */
+    border: 3px solid #bf953f;
+    margin-bottom: 15px;
+}
+
+/* El botón de Trazar Ruta sobre el mapa */
+.btn-ruta-flotante {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: #fdd835;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 0.8rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    white-space: nowrap;
+    border: 2px solid #000;
+}
+
 .btn-confirmar-v2 { display: block; background: #25d366; color: white; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: 900; margin-top: 20px; }
 .btn-cancelar-v2 { display: block; background: #ff4d4d; color: white; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: 900; margin-top: 10px; }
 
@@ -148,28 +177,28 @@ section {
 .scroll-indicator { font-size: 0.7rem; color: #fdd835; margin-top: 30px; letter-spacing: 1px; }
 
 
+/* Estilo de las notas agrupadas */
 .detalles-agrupados {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 15px 0;
+    gap: 8px;
+    margin: 10px 0;
 }
 
 .nota-mini {
     background: rgba(253, 216, 53, 0.95);
     color: #000;
-    padding: 10px;
+    padding: 8px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
 }
 
 .nota-mini p {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 900;
     text-transform: uppercase;
 }
