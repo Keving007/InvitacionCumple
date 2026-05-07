@@ -57,11 +57,10 @@ function saltarAInvitacion() {
             if(el) setTimeout(() => el.classList.add('visible-pieza'), delay);
         };
 
-        // Dentro de saltarAInvitacion()
-        show('waooo-titulo', 400);
-        show('waooo-frame', 1200);
-        show('waooo-texto', 2000);
-        show('waooo-scroll', 2800); // Aparece al final para guiar al usuario
+                show('waooo-titulo', 400);
+                show('waooo-frame', 1200);
+                show('waooo-texto', 2000);
+                show('waooo-scroll', 2600); // Aparece al final para guiar al usuario
 
 // La nota aparece justo después del título
         setTimeout(() => { 

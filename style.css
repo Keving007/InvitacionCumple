@@ -18,27 +18,34 @@ body { background-color: #000; color: white; font-family: 'Montserrat', sans-ser
 .hidden-total { display: none; }
 .visible-invitation { display: block !important; }
 
-/* --- AJUSTE PARA QUE NADA SE CORTE --- */
+/* --- SECCIONES: AJUSTE PARA MÓVIL (100dvh) --- */
 section { 
-    height: 100vh; /* Altura estándar */
-    height: 100dvh; /* Altura dinámica: se ajusta si aparece/desaparece la barra de navegación */
+    height: 100vh;
+    height: 100dvh; /* Evita que las barras del navegador tapen el contenido */
     width: 100%; 
     display: flex; 
     flex-direction: column; 
-    justify-content: space-between; /* Empuja el título arriba y el scroll abajo */
+    justify-content: space-between; /* Distribuye elementos de arriba a abajo */
     align-items: center; 
     text-align: center; 
     position: relative; 
-    padding: 40px 20px; /* Espacio de seguridad */
+    padding: 30px 20px; 
 }
 
-/* --- SECCIÓN 1: CENTRADO DE PIEZAS --- */
+/* --- AJUSTE DE TAMAÑOS PARA QUE TODO QUEPA --- */
 .feliz-cumple { 
     font-family: 'Rubik Storm', cursive; 
     color: #fdd835; 
-    font-size: 2.2rem; 
-    margin-bottom: 10px; /* Menos margen para dar espacio a la nota */
+    font-size: 2rem; /* Un poco más pequeño para ganar espacio */
     text-shadow: 2px 2px 0px #000;
+}
+
+.golden-frame { 
+    width: 170px; 
+    height: 170px; 
+    border-radius: 50%; 
+    border: 5px solid #bf953f; 
+    margin: 10px auto; 
 }
 
 /* Nota flotante: Ajustada para que no tape la camiseta */
@@ -56,18 +63,6 @@ section {
     transition: all 0.8s ease;
 }
 
-.golden-frame { 
-    width: 190px; /* Tamaño optimizado para móviles */
-    height: 190px; 
-    border-radius: 50%; 
-    border: 6px solid #bf953f; 
-    background: rgba(255,255,255,0.1); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    margin: 15px auto; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-}
 
 /* Texto inferior: Más aire entre líneas */
 .txt-invitacion-largo { 
@@ -78,38 +73,30 @@ section {
     margin: 0 auto;
 }
 
-/* --- INDICADOR DE SCROLL CON MOVIMIENTO --- */
+/* --- INDICADOR DE SCROLL ANIMADO --- */
 .scroll-indicator {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #fdd835;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: auto; /* Se pega siempre al fondo de la sección */
-    padding-bottom: 15px;
+    animation: bounce 2s infinite; /* Movimiento constante */
 }
 
-/* La flecha que rebota para los distraídos */
 .scroll-indicator::after {
     content: '▼';
-    font-size: 1rem;
-    animation: bounce 2s infinite;
+    font-size: 1.2rem;
 }
 
-/* --- OPTIMIZACIÓN DE ESPACIOS EN SECCIÓN 1 --- */
-.feliz-cumple { 
-    margin-top: 10px; 
-    font-size: 2.2rem; 
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }
 
-.golden-frame { 
-    width: 180px; 
-    height: 180px; 
-    margin: 10px auto; 
-}
 
 /* --- SECCIÓN 1: BIENVENIDA --- */
 .section-waooo { background: url('./img/Fondo1.jpg') center/cover no-repeat scroll #1b5e20; }
