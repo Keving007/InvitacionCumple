@@ -146,3 +146,30 @@ section {
 .anim-pieza { opacity: 0; transform: translateY(20px); transition: 1s; }
 .visible-pieza { opacity: 1 !important; transform: translateY(0) !important; }
 .scroll-indicator { font-size: 0.7rem; color: #fdd835; margin-top: 30px; letter-spacing: 1px; }
+
+
+.detalles-agrupados {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.nota-mini {
+    background: rgba(253, 216, 53, 0.95);
+    color: #000;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+}
+
+.nota-mini p {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}

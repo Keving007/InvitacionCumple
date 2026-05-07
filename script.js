@@ -57,30 +57,20 @@ function saltarAInvitacion() {
             if(el) setTimeout(() => el.classList.add('visible-pieza'), delay);
         };
 
-                show('waooo-titulo', 400);
-                show('waooo-frame', 1200);
-                show('waooo-texto', 2000);
-                show('waooo-scroll', 2600); // Aparece al final para guiar al usuario
+// Dentro de saltarAInvitacion()
+show('waooo-titulo', 400);
+show('waooo-frame', 1200);
+show('waooo-texto', 1800);
+show('waooo-scroll', 2400);
 
-// La nota aparece justo después del título
-        setTimeout(() => { 
-            const nota = document.querySelector('.nota-regalo');
-            if(nota) nota.classList.add('visible-pieza'); 
-        }, 1000);        
-        
-        
-        // Notas Flotantes
-        setTimeout(() => { document.querySelector('.nota-regalo').classList.add('visible-pieza'); }, 2200);
-        setTimeout(() => { document.querySelector('.nota-piscina').classList.add('visible-pieza'); }, 4200);
+show('convocatoria-titulo', 3000);
+show('convocatoria-fecha', 3400);
+show('convocatoria-marcador', 3800);
+show('convocatoria-texto-largo', 4200);
+show('convocatoria-scroll', 4600);
 
-        show('convocatoria-titulo', 3000);
-        show('convocatoria-fecha', 3500);
-        show('convocatoria-marcador', 4000);
-        show('convocatoria-texto-largo', 4500);
-        show('convocatoria-scroll', 5000);
-
-        show('location-izq', 5500);
-        show('location-der', 6000);
+show('location-izq', 5200); // Las notas aparecerán junto con este bloque
+show('location-der', 5800);
     }, 800);
 }
 
