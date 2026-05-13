@@ -69,7 +69,9 @@ function saltarAInvitacion() {
         }, 1000);        
         
         
-
+        // Notas Flotantes
+        setTimeout(() => { document.querySelector('.nota-regalo').classList.add('visible-pieza'); }, 2200);
+        setTimeout(() => { document.querySelector('.nota-piscina').classList.add('visible-pieza'); }, 4200);
 
         show('convocatoria-titulo', 3000);
         show('convocatoria-fecha', 3500);
