@@ -69,9 +69,7 @@ function saltarAInvitacion() {
         }, 1000);        
         
         
-        // Notas Flotantes
-        setTimeout(() => { document.querySelector('.nota-regalo').classList.add('visible-pieza'); }, 2200);
-        setTimeout(() => { document.querySelector('.nota-piscina').classList.add('visible-pieza'); }, 4200);
+
 
         show('convocatoria-titulo', 3000);
         show('convocatoria-fecha', 3500);
@@ -85,15 +83,23 @@ function saltarAInvitacion() {
 }
 
 function updateClock() {
-    const target = new Date('May 23, 2026 10:00:00').getTime();
+    // Actualizamos la fecha objetivo al 30 de mayo
+    const target = new Date('May 30, 2026 10:00:00').getTime();
     const now = new Date().getTime();
     const diff = target - now;
-    if (diff > 0) {
-        const d = Math.floor(diff / 864e5), h = Math.floor(diff % 864e5 / 36e5), 
-              m = Math.floor(diff % 36e5 / 6e4), s = Math.floor(diff % 6e4 / 1e3);
-        const countdownEl = document.getElementById('countdown');
-        if(countdownEl) countdownEl.innerHTML = `${d}D : ${h}H : ${m}M : ${s < 10 ? '0'+s : s}S`;
+
+    if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = "¡EMPEZÓ EL PARTIDO! ⚽";
+        return;
     }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('countdown').innerHTML = 
+        `${d.toString().padStart(2, '0')}D:${h.toString().padStart(2, '0')}H:${m.toString().padStart(2, '0')}M:${s.toString().padStart(2, '0')}S`;
 }
 setInterval(updateClock, 1000);
 updateClock();
